@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "nl-eli-mcp": {
+      "command": "nl-eli-mcp",
+      "env": {
+        "NL_ELI_BASE_URL": "https://zoekservice.overheid.nl/sru/Search",
+        "NL_ELI_CACHE_DIR": "~/.matematic/cache/nl-eli",
+        "NL_ELI_AUDIT_DIR": "~/.matematic/audit"
+      }
+    }
+  }
+}
