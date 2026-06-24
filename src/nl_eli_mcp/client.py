@@ -21,7 +21,7 @@ REPOSITORY_HOST = "repository.officiele-overheidspublicaties.nl"
 SRU_VERSION = "1.2"
 SRU_CONNECTION = "BWB"
 DEFAULT_TIMEOUT = httpx.Timeout(60.0, connect=10.0)
-USER_AGENT = "nl-eli-mcp/0.1.0 (+https://github.com/matematicsolutions/nl-eli-mcp)"
+USER_AGENT = "nl-eli-mcp/0.2.0 (+https://github.com/matematicsolutions/nl-eli-mcp)"
 
 _RETRY_STATUS = frozenset({429, 500, 502, 503, 504})
 _MAX_ATTEMPTS = 3

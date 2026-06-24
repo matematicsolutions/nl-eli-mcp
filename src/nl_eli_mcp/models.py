@@ -11,7 +11,14 @@ DATASET_NOTE = (
     "version in force on a given date (today unless on_date is set). The Netherlands does "
     "NOT publish native ELI (/eli/) URIs on consolidated BWB - eli_uri carries the official "
     "persistent identifier (the wetten.overheid.nl/id toestand URI). This MVP covers "
-    "consolidated legislation; case law (rechtspraak/ECLI) is not covered here."
+    "consolidated legislation; case law is exposed separately via the Rechtspraak tools."
+)
+
+CASE_DATASET_NOTE = (
+    "Dutch case law via Rechtspraak Open Data (data.rechtspraak.nl), keyed by native ECLI. "
+    "The open-data search has NO free-text query - discover decisions by date range (and "
+    "optional court/subject), then fetch a decision by its ECLI. Decisions carry an 'ecli' "
+    "(not an ELI)."
 )
 
 
@@ -48,6 +55,41 @@ class SearchResult(_Tolerant):
     returned: int
     items: list[BwbAct] = Field(default_factory=list)
     dataset_note: str = DATASET_NOTE
+
+
+class CaseHit(_Tolerant):
+    """One Rechtspraak search hit (an ECLI)."""
+
+    ecli: str | None = None
+    title: str | None = None
+    human_readable_citation: str | None = None
+    source_url: str | None = None
+
+
+class CaseSearchResult(_Tolerant):
+    """Result of ``nl_case_search`` - decisions matching the metadata filters."""
+
+    total: int
+    returned: int
+    items: list[CaseHit] = Field(default_factory=list)
+    dataset_note: str = CASE_DATASET_NOTE
+
+
+class Decision(_Tolerant):
+    """Result of ``nl_get_decision`` - a Dutch court decision with native ECLI."""
+
+    ecli: str | None = None
+    court: str | None = None
+    date: str | None = None
+    issued: str | None = None
+    subject: str | None = None
+    zaaknummer: str | None = None
+    title: str | None = None
+    human_readable_citation: str | None = None
+    source_url: str | None = None
+    text: str | None = None
+    byte_size: int | None = None
+    dataset_note: str = CASE_DATASET_NOTE
 
 
 class LawText(_Tolerant):

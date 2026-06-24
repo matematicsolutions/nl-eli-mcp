@@ -21,8 +21,11 @@ member state, the same citation contract everywhere.
 | `nl_search(query, on_date=today)` | Find acts by words in the title that are in force on a date. Returns distinct acts, each with the citation contract. |
 | `nl_get_act(bwb_id, on_date=today)` | Metadata for one act (e.g. `BWBR0005537`) — identifier, title, authority, version date. |
 | `nl_get_text(bwb_id, on_date=today)` | The full consolidated XML (BWB *toestand*) of one act. |
+| `nl_case_search(date_from, date_to, ...)` | List court decisions (Rechtspraak Open Data) by date range / court / subject. No free-text; each hit carries a native `ecli`. |
+| `nl_get_decision(ecli)` | A court decision by its ECLI (e.g. `ECLI:NL:HR:2020:1`) — court, dates, zaaknummer and full text. |
 
-Every response carries the **citation contract**:
+Legislation comes from the **BWB** (KOOP SRU); case law comes from **Rechtspraak Open Data**
+(`data.rechtspraak.nl`), keyed by native ECLI. Every response carries the **citation contract**:
 
 - `eli_uri` — the official persistent identifier (toestand URI; see the ELI note above).
 - `human_readable_citation` — the official short title (citeertitel), e.g. *Algemene wet bestuursrecht*.

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<open-rechtspraak>
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ecli="https://e-justice.europa.eu/ecli" xmlns:tr="http://tuchtrecht.overheid.nl/" xmlns:eu="http://publications.europa.eu/celex/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bwb="bwb-dl" xmlns:cvdr="http://decentrale.regelgeving.overheid.nl/cvdr/" xmlns:psi="http://psi.rechtspraak.nl/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <rdf:Description>
+      <dcterms:identifier>ECLI:NL:HR:2020:1</dcterms:identifier>
+      <dcterms:format>text/xml</dcterms:format>
+      <dcterms:accessRights>public</dcterms:accessRights>
+      <dcterms:modified>2025-08-05T09:17:07</dcterms:modified>
+      <dcterms:issued rdfs:label="Publicatiedatum">2020-01-06</dcterms:issued>
+      <dcterms:publisher resourceIdentifier="http://rechtspraak.nl/">Raad voor de Rechtspraak</dcterms:publisher>
+      <dcterms:language>nl</dcterms:language>
+      <dcterms:creator rdfs:label="Instantie" resourceIdentifier="http://standaarden.overheid.nl/owms/terms/Hoge_Raad_der_Nederlanden" scheme="overheid.RechterlijkeMacht">Hoge Raad</dcterms:creator>
+      <dcterms:date rdfs:label="Uitspraakdatum">2020-01-10</dcterms:date>
+      <psi:zaaknummer rdfs:label="Zaaknr">19/01199</psi:zaaknummer>
+      <dcterms:type rdf:language="nl" resourceIdentifier="http://psi.rechtspraak.nl/uitspraak">Uitspraak</dcterms:type>
+      <psi:procedure rdf:language="nl" rdfs:label="Procedure" resourceIdentifier="http://psi.rechtspraak.nl/procedure#cassatie">Cassatie</psi:procedure>
+      <dcterms:coverage>NL</dcterms:coverage>
+      <dcterms:subject rdfs:label="Rechtsgebied" resourceIdentifier="http://psi.rechtspraak.nl/rechtsgebied#bestuursrecht_belastingrecht">Bestuursrecht; Belastingrecht</dcterms:subject>
+      <dcterms:relation rdfs:label="Formele relatie" ecli:resourceIdentifier="ECLI:NL:GHARL:2019:414" psi:type="http://psi.rechtspraak.nl/cassatie" psi:aanleg="http://psi.rechtspraak.nl/eerdereAanleg">In cassatie op : ECLI:NL:GHARL:2019:414</dcterms:relation>
+      <dcterms:hasVersion rdfs:label="Vindplaatsen" resourceIdentifier="http://psi.rechtspraak.nl/vindplaats">
+        <rdf:list>
+          <rdf:li>Rechtspraak.nl</rdf:li>
+          <rdf:li>V-N Vandaag 2020/79</rdf:li>
+          <rdf:li>V-N 2020/4.11</rdf:li>
+          <rdf:li>ERF-Updates.nl 2020-0014</rdf:li>
+          <rdf:li>NLF 2020/0314 met annotatie van Nicole Gubbels</rdf:li>
+          <rdf:li>RN 2020/14</rdf:li>
+          <rdf:li>FED 2020/34 met annotatie van G.C.D. Grauss</rdf:li>
+          <rdf:li>NJB 2020/590</rdf:li>
+          <rdf:li>BNB 2020/37 met annotatie van A.O. LUBBERS</rdf:li>
+          <rdf:li>NTFR 2020/157 met annotatie van mr. A. de Vries</rdf:li>
+          <rdf:li>FutD 2020-0085</rdf:li>
+          <rdf:li>Viditax (FutD) 2020011008</rdf:li>
+        </rdf:list>
+      </dcterms:hasVersion>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://deeplink.rechtspraak.nl/uitspraak?id=ECLI:NL:HR:2020:1">
+      <dcterms:identifier>http://deeplink.rechtspraak.nl/uitspraak?id=ECLI:NL:HR:2020:1</dcterms:identifier>
+      <dcterms:format>text/html</dcterms:format>
+      <dcterms:accessRights>public</dcterms:accessRights>
+      <dcterms:modified>2020-01-09T10:52:34</dcterms:modified>
+      <dcterms:issued rdfs:label="Publicatiedatum">2020-01-10</dcterms:issued>
+      <dcterms:publisher resourceIdentifier="http://rechtspraak.nl/">Raad voor de Rechtspraak</dcterms:publisher>
+      <dcterms:language>nl</dcterms:language>
+      <dcterms:title rdf:language="nl">ECLI:NL:HR:2020:1 Hoge Raad , 10-01-2020 / 19/01199</dcterms:title>
+      <dcterms:abstract resourceIdentifier="../../rs:inhoudsindicatie" />
+    </rdf:Description>
+  </rdf:RDF>
+  <inhoudsindicatie id="ECLI:NL:HR:2020:1:INH" lang="nl" xml:space="preserve" xmlns="http://www.rechtspraak.nl/schema/rechtspraak-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <para>artikel 53 Successiewet, art. 6:228 BW, vernietiging schenkingsovereenkomst wegens dwaling.</para>
+    </inhoudsindicatie>
+  <uitspraak id="ECLI:NL:HR:2020:1:DOC" lang="nl" xml:space="preserve" xmlns="http://www.rechtspraak.nl/schema/rechtspraak-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <uitspraak.info>
+    <para />
+    <parablock>
+      <para>HOGE RAAD DER NEDERLANDEN</para>
+    </parablock>
+    <para />
+    <parablock>
+      <para>BELASTINGKAMER</para>
+    </parablock>
+    <para />
+    <parablock>
+      <para>
+        <emphasis role="bold">Nummer</emphasis>	19/01199</para>
+      <para>
+        <emphasis role="bold">Datum	</emphasis>10 januari 2020</para>
+    </parablock>
+    <para />
+    <para />
+    <parablock>
+      <para>ARREST</para>
+    </parablock>
+    <para />
+    <para />
+    <parablock>
+      <para>In de zaak van</para>
+    </parablock>
+    <para />
+    <parablock>
+      <para>
+        [X] te [Z] (hierna: belanghebbende)</para>
+    </parablock>
+    <para />
+    <parablock>
+      <para>tegen</para>
+    </parablock>
+    <para />
+    <parablock>
+      <para>de STAATSSECRETARIS VAN FINANCIÃN</para>
+    </parablock>
+    <para />
+    <para />
+    <parablock>
+      <para>op het beroep in cassatie  tegen de uitspraak van het Gerechtshof Arnhem-Leeuwarden van 22 januari 2019, nr. 18/00126, op het hoger beroep van de Inspecteur tegen een uitspraak van de Rechtbank Gelderland (nr. AWB 17/2502) betreffende een aan belanghebbende opgelegde aanslag in de schenkbelasting. De uitspraak van het Hof is aan dit arrest gehecht.</para>
+    </parablock>
+    <para />
+  </uitspraak.info>
+  <section>
+    <title>
+      <nr>1</nr>Geding in cassatie</title>
+    <parablock>
+      <para>Belanghebbende heeft tegen de uitspraak van het Hof beroep in cassatie ingesteld. Het beroepschrift in cassatie is aan dit arrest gehecht en maakt daarvan deel uit. </para>
+      <para>De Staatssecretaris van FinanciÃ«n heeft een verweerschrift ingediend.</para>
+    </parablock>
+  </section>
+  <section role="overwegingen">
+    <title>
+      <nr>2</nr>Beoordeling van de middelen</title>
+    <paragroup>
+      <nr>2.1</nr>
+      <para>In cassatie kan van het volgende worden uitgegaan.</para>
+      <paragroup>
+        <nr>2.1.1</nr>
+        <para>Belanghebbende heeft op 22 september 2015 een woning gekocht van zijn oudtante. De notariÃ«le akte van levering is gedagtekend 2 november 2015. In deze akte is een koopprijs van â¬ 325.000 vermeld. De oudtante heeft belanghebbende toegezegd dat hij de woning voor â¬ 225.000 kon kopen. Bij notariÃ«le akte van schenking van 7 december 2015 heeft belanghebbende een bedrag van â¬ 100.000 geschonken gekregen van zijn oudtante (hierna: de schenking). In deze akte is bepaald dat de verschuldigde rechten en kosten voor rekening van belanghebbende komen.</para>
+      </paragroup>
+      <paragroup>
+        <nr>2.1.2</nr>
+        <para>Belanghebbende heeft op 4 april 2016 van de schenking aangifte gedaan. De aanslag in de schenkbelasting is opgelegd op 30 augustus 2016, overeenkomstig de aangifte.</para>
+      </paragroup>
+      <paragroup>
+        <nr>2.1.3</nr>
+        <para>Bij notariÃ«le akte van rectificatie van de schenking van 4 november 2016 is de schenking op grond van dwaling omgezet in een lening. De oudtante heeft die lening eind 2017 kwijtgescholden.</para>
+      </paragroup>
+    </paragroup>
+    <paragroup>
+      <nr>2.2</nr>
+      <para>Voor het Hof was in geschil of de aanslag terecht is opgelegd. Het Hof heeft die vraag bevestigend beantwoord. Daartoe heeft het, voor zover in cassatie van belang, als volgt geoordeeld. Het Hof acht aannemelijk dat belanghebbende en de oudtante de fiscale gevolgen van de schenking niet hebben gewild. Om deze wederzijdse dwaling met succes te kunnen tegenwerpen aan de Inspecteur, is van belang of belanghebbende en de oudtante bij het sluiten van de schenkingsovereenkomst in vermoedelijke zekerheid verkeerden dat zij een juiste voorstelling hadden van het tarief van de schenkbelasting. Belanghebbende heeft niet aannemelijk gemaakt dat hij in vermoedelijke zekerheid verkeerde. De conclusie is dat er geen verschoonbare rechtsdwaling is, aldus het Hof.</para>
+    </paragroup>
+    <paragroup>
+      <nr>2.3</nr>
+      <para>Het eerste middel betoogt dat het Hof een te zware bewijslast aan belanghebbende heeft opgelegd.</para>
+      <paragroup>
+        <nr>2.4.1</nr>
+        <para>Indien als gevolg van vernietiging van een schenkingsovereenkomst wegens dwaling een ongedaanmakingsverplichting ontstaat, kan de uitoefening van het daarmee corresponderende terugvorderingsrecht reden zijn om met toepassing van artikel 53, lid 1, Successiewet 1956 (hierna: SW) de in verband met de schenking opgelegde aanslag in de schenkbelasting te verminderen. Die vernietiging van een schenkingsovereenkomst heeft evenwel niet tot gevolg dat de schenking, het belastbare feit naar aanleiding waarvan de aanslag is opgelegd, teniet is gedaan. Vernietiging van een schenkingsovereenkomst kan daarom geen reden zijn die aanslag te vernietigen. </para>
+        <para />
+      </paragroup>
+      <paragroup>
+        <nr>2.4.2</nr>
+        <para>Vermindering wordt volgens artikel 53, lid 5, SW verleend op een verzoek dat geschiedt door het doen van aangifte en waarop de inspecteur bij voor bezwaar vatbare beschikking beslist. Deze bepaling heeft tot doel te waarborgen dat op een latere gebeurtenis, die aanleiding tot vermindering kan zijn, een beroep kan worden gedaan<footnote-ref linkend="_2ffe1635-8fea-42e7-ab39-7866d4570479" /> en dat daarvoor een rechtsingang is<footnote-ref linkend="_31cb301f-0602-4cfe-9f15-12e3c58ae17c" />. Dat verzoek moet ingevolge artikel 53, lid 6, SW worden ingediend binnen acht maanden nadat de oorzaak tot vermindering is ontstaan. Geen rechtsregel verzet zich ertegen dat een belastingplichtige om toepassing van artikel 53, lid 1, SW kan verzoeken in het bezwaar of (hoger) beroep tegen de aanslag in de schenkbelasting. </para>
+      </paragroup>
+      <paragroup>
+        <nr>2.4.3</nr>
+        <para>Uit het voorgaande volgt dat het beroep van belanghebbende op de hiervoor in 2.1.3 vermelde notariÃ«le akte in geen geval tot vernietiging van de aanslag kan leiden, zodat het Hof in zoverre terecht de vernietiging van de aanslag door de Rechtbank heeft vernietigd. </para>
+      </paragroup>
+      <paragroup>
+        <nr>2.4.4</nr>
+        <para>Het middel is terecht voorgesteld voor zover het ertoe strekt te betogen dat het Hof na de vaststelling (in rechtsoverweging 4.7) dat sprake is van wederzijdse dwaling, niet meer kon beoordelen of belanghebbende heeft voldaan aan de last te bewijzen dat hij die dwaling aan de Inspecteur kan tegenwerpen. Vernietiging van een schenkingsovereenkomst wegens wederzijdse dwaling als bedoeld in artikel 6:228, lid 1, aanhef en letter c, BW, leidt tot vermindering van de aanslag in de schenkbelasting op grond van artikel 53, lid 1, SW, tenzij de bij de schenkingsovereenkomst en het beroep op vernietiging betrokken partijen het beroep op vernietiging slechts hebben voorgewend. Naast deze maatstaf is voor toepassing van artikel 6:228, lid 2, BW geen plaats.<footnote-ref linkend="_1a42e938-c24d-43e6-841e-ca1d266f88bc" /> Het is aan degene die zich op de vernietiging beroept om voldoende aanknopingspunten voor de gestelde dwaling te verschaffen. Het is aan de inspecteur om aannemelijk te maken dat de vernietiging van de schenkingsovereenkomst slechts is voorgewend. </para>
+      </paragroup>
+    </paragroup>
+    <paragroup>
+      <nr>2.5</nr>
+      <para>De middelen voor het overige kunnen niet tot cassatie leiden. Dat behoeft, gelet op artikel 81, lid 1, van de Wet op de rechterlijke organisatie, geen verdere motivering aangezien de middelen in zoverre niet nopen tot beantwoording van rechtsvragen in het belang van de rechtseenheid of de rechtsontwikkeling.</para>
+    </paragroup>
+    <paragroup>
+      <nr>2.6</nr>
+      <para>Verwijzing moet volgen. De rechter naar wie de zaak wordt verwezen zal partijen de gelegenheid moeten bieden hun stellingen aan het hiervoor overwogene aan te passen. Dat wil zeggen dat belanghebbende de gelegenheid moet krijgen op te geven of hij met toepassing van artikel 53, lid 1, SW vermindering verzoekt, en zo ja, de Inspecteur de gelegenheid moet krijgen aannemelijk te maken dat het verzoek op vermindering berust op een oorzaak die slechts is voorgewend. Opmerking verdient dat indien belanghebbende dat verzoek doet, uit de inhoud van het bezwaarschrift volgt dat de hiervoor in 2.4.2 genoemde termijn van acht maanden niet is overschreden.</para>
+    </paragroup>
+  </section>
+  <section>
+    <title>
+      <nr>3</nr>Proceskosten</title>
+    <para>	De Staatssecretaris zal worden veroordeeld in de kosten van het geding in cassatie. Door het verwijzingshof zal worden beoordeeld of aan belanghebbende voor de kosten van het geding voor het Hof en van het geding voor de Rechtbank en in verband met de behandeling van het bezwaar een vergoeding moet worden toegekend.</para>
+  </section>
+  <section role="beslissing">
+    <title>
+      <nr>4</nr>Beslissing</title>
+    <parablock>
+      <para>De Hoge Raad:</para>
+      <para>- verklaart het beroep in cassatie gegrond,</para>
+      <para>- vernietigt de uitspraak van het Hof,</para>
+      <para>- verwijst het geding naar het Gerechtshof âs-Hertogenbosch ter verdere behandeling en beslissing van de zaak met inachtneming van dit arrest,</para>
+      <para>- draagt de Staatssecretaris van FinanciÃ«n op aan belanghebbende te vergoeden het griffierecht dat belanghebbende voor de behandeling van het beroep in cassatie heeft betaald van â¬ 128, en</para>
+      <para>- veroordeelt de Staatssecretaris van FinanciÃ«n in de kosten van belanghebbende voor het geding in cassatie, vastgesteld op â¬ 1.050 voor beroepsmatig verleende rechtsbijstand.</para>
+    </parablock>
+    <para />
+    <parablock>
+      <para>Dit arrest is gewezen door de vice-president G. de Groot als voorzitter, en de raadsheren M.A. Fierstra, J. Wortel, A.F.M.Q. Beukers-van Dooren en P.A.G.M. Cools, in tegenwoordigheid van de waarnemend griffier F. Treuren, en in het openbaar uitgesproken op 10 januari 2020.</para>
+    </parablock>
+  </section>
+  <footnote id="_2ffe1635-8fea-42e7-ab39-7866d4570479" label="1">
+    <para>Vgl. Kamerstukken II, 1948, 915, nr. 3, blz. 28; Kamerstukken II 1953/1954, 915, nr. 5, blz. 22.</para>
+  </footnote>
+  <footnote id="_31cb301f-0602-4cfe-9f15-12e3c58ae17c" label="2">
+    <para> Vgl.. Kamerstukken II 1981, 17 041, nr. 3, blz. 22; Kamerstukken II 1990/1991, 22 061, nrs. 1-2, blz. 52;  Kamerstukken II 1990/1991, 22 061, nr. 3, blz. 80 en blz. 1-10.</para>
+  </footnote>
+  <footnote id="_1a42e938-c24d-43e6-841e-ca1d266f88bc" label="3">
+    <para> HR 12 juli 2002, ECLI:NL:HR:2002:ZC8145. </para>
+  </footnote>
+</uitspraak>
+</open-rechtspraak>
