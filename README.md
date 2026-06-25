@@ -1,5 +1,7 @@
 # nl-eli-mcp
 
+<!-- mcp-name: io.github.matematicsolutions/nl-eli-mcp -->
+
 An MCP server for the **Dutch consolidated legislation BWB** (Basiswettenbestand), served by
 KOOP over the official SRU API (`zoekservice.overheid.nl`, keyless). It gives an AI agent the
 version of an act **in force on a given date**, with a verifiable citation: a persistent
