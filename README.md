@@ -2,6 +2,23 @@
 
 <!-- mcp-name: io.github.matematicsolutions/nl-eli-mcp -->
 
+
+## Instalacja (jedna komenda)
+
+Opublikowany na PyPI + MCP Registry (`io.github.matematicsolutions/nl-eli-mcp`). Uruchomienie bez klonowania:
+
+```bash
+uvx nl-eli-mcp
+```
+
+Konfiguracja klienta MCP (stdio):
+
+```json
+{ "mcpServers": { "nl-eli-mcp": { "command": "uvx", "args": ["nl-eli-mcp"] } } }
+```
+
+(Budowanie ze źródeł — niżej.)
+
 An MCP server for the **Dutch consolidated legislation BWB** (Basiswettenbestand), served by
 KOOP over the official SRU API (`zoekservice.overheid.nl`, keyless). It gives an AI agent the
 version of an act **in force on a given date**, with a verifiable citation: a persistent
