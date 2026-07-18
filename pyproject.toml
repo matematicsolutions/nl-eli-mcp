@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "nl-eli-mcp"
-version = "0.2.1"
+version = "0.3.0"
 description = "MCP server for the Dutch consolidated legislation BWB (KOOP SRU) — fetch acts in force on a date with persistent identifiers and verifiable citations."
 readme = "README.md"
 license = { text = "Apache-2.0" }
