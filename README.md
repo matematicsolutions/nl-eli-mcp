@@ -64,6 +64,7 @@ member state, the same citation contract everywhere.
 | `nl_get_text(bwb_id, on_date=today)` | The full consolidated XML (BWB *toestand*) of one act. |
 | `nl_case_search(date_from, date_to, ...)` | List court decisions (Rechtspraak Open Data) by date range / court / subject. No free-text; each hit carries a native `ecli`. |
 | `nl_get_decision(ecli)` | A court decision by its ECLI (e.g. `ECLI:NL:HR:2020:1`) — court, dates, zaaknummer and full text. |
+| `nl_coverage()` | Declare what this connector covers, when each family was captured, and - explicitly - what it does NOT cover. Every gap carries a fallback. |
 
 Legislation comes from the **BWB** (KOOP SRU); case law comes from **Rechtspraak Open Data**
 (`data.rechtspraak.nl`), keyed by native ECLI. Every response carries the **citation contract**:
