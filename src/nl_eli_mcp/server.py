@@ -60,6 +60,7 @@ This server also exposes Dutch **case law** via Rechtspraak Open Data (data.rech
 
 ## Hard constraints
 
+- **Do not answer past the edge of this corpus** - when a search comes back empty, or the question touches material this connector does not carry, call `nl_coverage` and relay what it says is missing. Absence here is not absence in the law.
 - **eli_uri is the citability key, but the Netherlands does NOT publish native ELI (/eli/) URIs on consolidated BWB.** `eli_uri` therefore carries the official persistent identifier - the `wetten.overheid.nl/id` toestand URI (e.g. `http://wetten.overheid.nl/id/BWBR0005537/2026-06-04/0`). Never fabricate a `/eli/` URI.
 - **Case law carries a native `ecli`, not an ELI** - cite it verbatim; never invent one.
 - **Legislation search is title-based; case-law search is metadata-based (no free text)** - `nl_search` matches words in the act title; `nl_case_search` filters by date / court / subject.
