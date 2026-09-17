@@ -107,7 +107,7 @@ Register it with your MCP client (see `.mcp.json.example`):
 - **Public data only.** Read-only against the keyless KOOP SRU API and the official repository
   host; nothing is sent beyond the query / identifier and the date.
 - **Audit log.** Every call appends one JSON line to `~/.matematic/audit/nl-eli-mcp.jsonl`
-  (AI Act art. 12 record-keeping).
+  (record-keeping).
 - **Vendor-neutral.** No LLM provider, no telemetry; own backoff + on-disk cache.
 - **No fabrication.** Identifiers and titles are parsed from the source record. If KOOP's
   schema changes, the connector fails loudly rather than returning stale or invented data.
