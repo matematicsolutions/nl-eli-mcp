@@ -1,0 +1,953 @@
+{
+  "package_version": "0.4.3",
+  "tools": {
+    "nl_case_search": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "List Dutch court decisions (Rechtspraak Open Data) by metadata filters.\n\nThe open-data search has NO free-text query. Filter by a date range and, optionally, a\ncourt (`creator`) or legal-area (`subject`) authority URI, then fetch a decision with\n``nl_get_decision``.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "creator": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "optional court authority URI (Instantie), passed through verbatim."
+            },
+            "date_from": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "earliest decision date (YYYY-MM-DD)."
+            },
+            "date_to": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "latest decision date (YYYY-MM-DD)."
+            },
+            "max_results": {
+              "default": 10,
+              "description": "1..50.",
+              "type": "integer"
+            },
+            "subject": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "optional legal-area authority URI (Rechtsgebied), passed through verbatim."
+            }
+          },
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "nl_case_search",
+        "outputSchema": {
+          "additionalProperties": true,
+          "description": "Result of ``nl_case_search`` - decisions matching the metadata filters.",
+          "properties": {
+            "dataset_note": {
+              "default": "Dutch case law via Rechtspraak Open Data (data.rechtspraak.nl), keyed by native ECLI. The open-data search has NO free-text query - discover decisions by date range (and optional court/subject), then fetch a decision by its ECLI. Decisions carry an 'ecli' (not an ELI).",
+              "type": "string"
+            },
+            "items": {
+              "items": {
+                "additionalProperties": true,
+                "description": "One Rechtspraak search hit (an ECLI).",
+                "properties": {
+                  "ecli": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "human_readable_citation": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "source_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "title": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "returned": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "total",
+            "returned"
+          ],
+          "type": "object"
+        }
+      },
+      "sha256": "0a29db96983d91c8c54570feaf093165cbddb82adaf7c11aaa87f72440e17f62"
+    },
+    "nl_coverage": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Declare what this connector covers, how it is sourced, and what it does NOT cover.\n\nCall this before telling a user that the law \"does not contain\" something, and whenever\na search comes back empty: the absence may be a gap in this connector rather than in the\nlaw. Every gap carries a fallback saying where to look instead.\n\nReturns:\n    ``Coverage`` with families, an as-of note, and a non-empty list of known gaps.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "nl_coverage",
+        "outputSchema": {
+          "additionalProperties": true,
+          "description": "What this connector covers, how it is sourced, and what it does not cover.",
+          "properties": {
+            "as_of_note": {
+              "description": "States what the dates mean, and what they do not promise.",
+              "type": "string"
+            },
+            "families": {
+              "items": {
+                "additionalProperties": true,
+                "description": "One data family this connector exposes.",
+                "properties": {
+                  "captured_at": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Date this family was last captured (ISO). None when queried live."
+                  },
+                  "live": {
+                    "default": true,
+                    "description": "True when queried live instead of from a snapshot.",
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "description": "Data family, e.g. 'Federal legislation'.",
+                    "type": "string"
+                  },
+                  "source": {
+                    "description": "Official source the data comes from.",
+                    "type": "string"
+                  },
+                  "tool": {
+                    "description": "Tool or tools that reach this family.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "tool",
+                  "source"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "known_gaps": {
+              "description": "Never empty. An empty list would mean 'not checked', not 'no gaps'.",
+              "items": {
+                "additionalProperties": true,
+                "description": "A known, named hole in this connector's coverage - plus the way around it.",
+                "properties": {
+                  "fallback": {
+                    "description": "Where to go instead.",
+                    "type": "string"
+                  },
+                  "family": {
+                    "description": "Which family the gap belongs to.",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "Stable gap identifier.",
+                    "type": "string"
+                  },
+                  "missing": {
+                    "description": "What is NOT available through this connector.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "family",
+                  "missing",
+                  "fallback"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "status": {
+              "default": "ok",
+              "enum": [
+                "ok",
+                "degraded",
+                "failed"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "as_of_note"
+          ],
+          "type": "object"
+        }
+      },
+      "sha256": "de08c9fe7ae186de85cd783d5f0fafbcf7f9a2ee8307e1b42c5ea69233c4dab3"
+    },
+    "nl_get_act": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Fetch metadata for the version of a Dutch act in force on a date.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "bwb_id": {
+              "description": "e.g. ``\"BWBR0005537\"``.",
+              "type": "string"
+            },
+            "on_date": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "optional ``YYYY-MM-DD``; defaults to today."
+            }
+          },
+          "required": [
+            "bwb_id"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "nl_get_act",
+        "outputSchema": {
+          "additionalProperties": true,
+          "description": "A Dutch consolidated act (one toestand / version), parsed from a KOOP SRU gzd record.",
+          "properties": {
+            "act_type": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "authority": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "bwb_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "date_modified": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "eli_uri": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "human_readable_citation": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "legal_areas": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "source_url": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "text_url": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "title": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "version_date": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            }
+          },
+          "type": "object"
+        }
+      },
+      "sha256": "d7dbab5c84925cd962d19e7d696e4703e3164a7afb8e1829ebe49864f5123d10"
+    },
+    "nl_get_decision": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Fetch a Dutch court decision by its ECLI (Rechtspraak Open Data).",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "ecli": {
+              "description": "e.g. ``ECLI:NL:HR:2020:1``.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "ecli"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "nl_get_decision",
+        "outputSchema": {
+          "additionalProperties": true,
+          "description": "Result of ``nl_get_decision`` - a Dutch court decision with native ECLI.",
+          "properties": {
+            "byte_size": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "court": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "dataset_note": {
+              "default": "Dutch case law via Rechtspraak Open Data (data.rechtspraak.nl), keyed by native ECLI. The open-data search has NO free-text query - discover decisions by date range (and optional court/subject), then fetch a decision by its ECLI. Decisions carry an 'ecli' (not an ELI).",
+              "type": "string"
+            },
+            "date": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "ecli": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "human_readable_citation": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "issued": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "source_url": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "subject": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "title": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "zaaknummer": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            }
+          },
+          "type": "object"
+        }
+      },
+      "sha256": "262e2b2d89de2bd62b3ccde7cf3086e89473e56274e0f7c5bcd3b59ffd5ecdcf"
+    },
+    "nl_get_text": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Fetch the full consolidated XML of a Dutch act in force on a date.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "bwb_id": {
+              "description": "e.g. ``\"BWBR0005537\"``.",
+              "type": "string"
+            },
+            "on_date": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "optional ``YYYY-MM-DD``; defaults to today."
+            }
+          },
+          "required": [
+            "bwb_id"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "nl_get_text",
+        "outputSchema": {
+          "additionalProperties": true,
+          "description": "Result of ``nl_get_text`` (full consolidated XML of one version).",
+          "properties": {
+            "bwb_id": {
+              "type": "string"
+            },
+            "byte_size": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "content": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "dataset_note": {
+              "default": "BWB (Basiswettenbestand) is the official consolidated body of Dutch national legislation, served by KOOP over SRU. Each act is identified by a BWB id (e.g. BWBR0005537) and has many time-stamped versions (toestanden); tools default to the version in force on a given date (today unless on_date is set). The Netherlands does NOT publish native ELI (/eli/) URIs on consolidated BWB - eli_uri carries the official persistent identifier (the wetten.overheid.nl/id toestand URI). This MVP covers consolidated legislation; case law is exposed separately via the Rechtspraak tools.",
+              "type": "string"
+            },
+            "eli_uri": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "format": {
+              "default": "bwb-toestand-xml",
+              "type": "string"
+            },
+            "human_readable_citation": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "on_date": {
+              "type": "string"
+            },
+            "source_url": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "text_url": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
+            "version_date": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            }
+          },
+          "required": [
+            "bwb_id",
+            "on_date"
+          ],
+          "type": "object"
+        }
+      },
+      "sha256": "a33a7dec042fe924ebf80e2bb4766332c3b0a8b1891e9b31e137922366d8433a"
+    },
+    "nl_search": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Search Dutch consolidated acts by words in the title, in force on a date.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "on_date": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "optional ``YYYY-MM-DD``; defaults to today (acts in force today)."
+            },
+            "query": {
+              "description": "words to match in the act title, e.g. ``\"bestuursrecht\"``.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "nl_search",
+        "outputSchema": {
+          "additionalProperties": true,
+          "description": "Result of ``nl_search`` - distinct acts in force, one entry per BWB id.",
+          "properties": {
+            "dataset_note": {
+              "default": "BWB (Basiswettenbestand) is the official consolidated body of Dutch national legislation, served by KOOP over SRU. Each act is identified by a BWB id (e.g. BWBR0005537) and has many time-stamped versions (toestanden); tools default to the version in force on a given date (today unless on_date is set). The Netherlands does NOT publish native ELI (/eli/) URIs on consolidated BWB - eli_uri carries the official persistent identifier (the wetten.overheid.nl/id toestand URI). This MVP covers consolidated legislation; case law is exposed separately via the Rechtspraak tools.",
+              "type": "string"
+            },
+            "items": {
+              "items": {
+                "additionalProperties": true,
+                "description": "A Dutch consolidated act (one toestand / version), parsed from a KOOP SRU gzd record.",
+                "properties": {
+                  "act_type": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "authority": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "bwb_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "date_modified": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "eli_uri": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "human_readable_citation": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "legal_areas": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "source_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "text_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "title": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "version_date": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "on_date": {
+              "type": "string"
+            },
+            "query": {
+              "type": "string"
+            },
+            "returned": {
+              "type": "integer"
+            },
+            "total_matched": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "query",
+            "on_date",
+            "total_matched",
+            "returned"
+          ],
+          "type": "object"
+        }
+      },
+      "sha256": "750a057d14ec35f218347266853f7c1b64c996ea3dc5a228bcfb926b46d20550"
+    }
+  },
+  "toolset_sha256": "a72b51d9e4ff67910260a297c8c2065883df3f9c40eaaec189f0012b40a15aca"
+}
