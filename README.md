@@ -5,6 +5,14 @@
 
 ## Install (one command)
 
+As a Claude plugin (Claude Code or the desktop app, needs [uv](https://docs.astral.sh/uv/));
+see [plugin/README.md](plugin/README.md) for what it sends and stores:
+
+```
+/plugin marketplace add matematicsolutions/nl-eli-mcp
+/plugin install nl-eli-mcp@nl-eli-mcp
+```
+
 Published on PyPI + MCP Registry (`io.github.matematicsolutions/nl-eli-mcp`). Run without cloning:
 
 ```bash
@@ -104,11 +112,15 @@ Register it with your MCP client (see `.mcp.json.example`):
 
 ## Design
 
-- **Public data only.** Read-only against the keyless KOOP SRU API and the official repository
-  host; nothing is sent beyond the query / identifier and the date.
+- **Public data only.** Read-only against the keyless KOOP SRU API, the official repository
+  host and Rechtspraak Open Data; nothing is sent beyond the query / identifier and the date.
 - **Audit log.** Every call appends one JSON line to `~/.matematic/audit/nl-eli-mcp.jsonl`
   (record-keeping).
-- **Vendor-neutral.** No LLM provider, no telemetry; own backoff + on-disk cache.
+- **Network.** Besides the sources above, once on first use the server fetches a small
+  configuration file (`nl-runtime.json.gz`, updated source addresses) from this repository's
+  GitHub Releases. That request carries no query content; GitHub's download counter for the
+  file is the only usage signal we see. `NL_ELI_RUNTIME_URL=""` turns it off; the Claude
+  plugin ships with it off. No LLM provider, no other telemetry; own backoff + on-disk cache.
 - **No fabrication.** Identifiers and titles are parsed from the source record. If KOOP's
   schema changes, the connector fails loudly rather than returning stale or invented data.
 

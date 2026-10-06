@@ -1,0 +1,41 @@
+{
+  "name": "nl-eli-mcp",
+  "description": "Dutch law with verifiable citations: consolidated legislation from the BWB (wetten.overheid.nl via the official KOOP search service), as in force on a chosen date, with persistent BWB identifiers, and court decisions from Rechtspraak Open Data by ECLI. Every answer carries the official source and identifier, so a citation can be checked instead of trusted. Queries go only to these official Dutch sources; nothing goes to MateMatic.",
+  "version": "0.4.3",
+  "author": {
+    "name": "Wieslaw Mazur / MateMatic Solutions"
+  },
+  "homepage": "https://matematicsolutions.com/en/boutique/connectors",
+  "repository": "https://github.com/matematicsolutions/nl-eli-mcp",
+  "documentationUrl": "https://github.com/matematicsolutions/nl-eli-mcp/tree/main/plugin#readme",
+  "supportUrl": "https://github.com/matematicsolutions/nl-eli-mcp/issues",
+  "privacyPolicyUrl": "https://github.com/matematicsolutions/nl-eli-mcp/tree/main/plugin#data",
+  "termsOfServiceUrl": "https://github.com/matematicsolutions/nl-eli-mcp/blob/main/LICENSE",
+  "license": "Apache-2.0",
+  "keywords": [
+    "legal",
+    "netherlands",
+    "dutch",
+    "law",
+    "legislation",
+    "case-law",
+    "ecli",
+    "citations",
+    "mcp"
+  ],
+  "mcpServers": {
+    "nl-eli-mcp": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--frozen",
+        "--project",
+        "${CLAUDE_PLUGIN_ROOT}/server",
+        "nl-eli-mcp"
+      ],
+      "env": {
+        "NL_ELI_RUNTIME_URL": ""
+      }
+    }
+  }
+}

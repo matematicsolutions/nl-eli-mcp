@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-plugin-marketplace.json",
+  "name": "nl-eli-mcp",
+  "description": "One plugin: Dutch law with verifiable citations.",
+  "owner": {
+    "name": "Wieslaw Mazur / MateMatic Solutions",
+    "url": "https://matematicsolutions.com"
+  },
+  "plugins": [
+    {
+      "name": "nl-eli-mcp",
+      "description": "Dutch consolidated legislation (BWB, in force on a date) and Rechtspraak decisions by ECLI.",
+      "version": "0.4.3",
+      "author": {
+        "name": "Wieslaw Mazur / MateMatic Solutions"
+      },
+      "license": "Apache-2.0",
+      "source": "./plugin"
+    }
+  ]
+}
