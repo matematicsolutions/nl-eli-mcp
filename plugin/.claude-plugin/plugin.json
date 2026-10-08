@@ -25,13 +25,9 @@
   ],
   "mcpServers": {
     "nl-eli-mcp": {
-      "command": "uv",
+      "command": "uvx",
       "args": [
-        "run",
-        "--frozen",
-        "--project",
-        "${CLAUDE_PLUGIN_ROOT}/server",
-        "nl-eli-mcp"
+        "nl-eli-mcp==0.4.3"
       ],
       "env": {
         "NL_ELI_RUNTIME_URL": ""

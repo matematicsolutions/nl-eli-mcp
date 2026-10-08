@@ -1,6 +1,6 @@
 # Runtime of the Claude plugin: pins nl-eli-mcp and every transitive dependency
 # (with hashes) in uv.lock, so the plugin runs exactly what was reviewed.
-# Started by plugin.json as: uv run --frozen --project ${CLAUDE_PLUGIN_ROOT}/server nl-eli-mcp
+# Started by plugin.json as: uvx nl-eli-mcp==0.4.3 (Claude Code's locked launch reads this uv.lock)
 [project]
 name = "nl-eli-mcp-plugin-runtime"
 version = "0.4.3"

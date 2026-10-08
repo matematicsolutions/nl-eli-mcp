@@ -2,8 +2,10 @@
 
 Dutch law with verifiable citations, as a Claude plugin. It runs the
 [nl-eli-mcp](https://github.com/matematicsolutions/nl-eli-mcp) MCP server, version 0.4.3
-from PyPI. `server/uv.lock` pins that package and every dependency with hashes, and the
-plugin starts it with `uv run --frozen`, so it runs exactly what was reviewed. Every
+from PyPI. `uv.lock`, next to the manifest, pins that package and every dependency with
+hashes. The plugin starts it with `uvx nl-eli-mcp==0.4.3`, and Claude Code's locked launch
+installs exactly the set in `uv.lock`, so it runs what was reviewed. (Run by hand outside
+Claude Code, plain `uvx` resolves the dependency ranges from PyPI instead.) Every
 answer carries the official source, so a citation can be checked instead of trusted.
 
 What it covers: consolidated Dutch legislation from the BWB (search by title, metadata and full text of the version in force on a chosen date, via the KOOP search service and wetten.overheid.nl), and court decisions from Rechtspraak Open Data (search by date, court and subject; full decision by ECLI). The full tool list is in the
@@ -12,7 +14,7 @@ What it covers: consolidated Dutch legislation from the BWB (search by title, me
 ## Requirements
 
 Claude Code or the Claude desktop app, and [uv](https://docs.astral.sh/uv/) on your
-machine (it installs the locked packages on first start and runs the server).
+machine (its `uvx` installs the locked packages on first start and runs the server).
 
 ## Install
 
